@@ -1,0 +1,26 @@
+.modal-body {
+  padding: 15px;
+}
+
+.album-list {
+  overflow-y: auto;
+  max-height: 400px;
+}
+
+.photo-gallery-container {
+  margin-top: 20px;
+}
+
+.photo {
+  width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.pagination-buttons {
+  margin-top: 10px;
+}
+
+.pagination-buttons button {
+  margin-right: 10px;
+}
