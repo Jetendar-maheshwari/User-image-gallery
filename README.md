@@ -19,7 +19,7 @@ The Photo Gallery Application provides a user-friendly interface for searching t
 ## API used
 
 API of [JSONPlaceholder](https://jsonplaceholder.typicode.com/) is used for change please check the file apiConfig
-inside the utils folder.
+inside the src/utils folder.
 
 ## Installation
 
