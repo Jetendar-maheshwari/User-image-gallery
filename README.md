@@ -1,42 +1,63 @@
-# React frontend project to show the user list and their albums and photos
+# User Photo Gallery Application
 
-## API used
+This project is a Album Photo Gallery Application built with TypeScript, BootStrap, NodeJS, React,Jest for unit testing, and Cypress for E2E test.
 
-API of [JSONPlaceholder](https://jsonplaceholder.typicode.com/) is used for change please check the file apiConfig inside the utils folder.
+## Overview
 
-## Scripts which need to run the project
+The Photo Gallery Application provides a user-friendly interface for searching the user by user name and see their Albums and the photos in user friendly view.
 
-In the project directory, you can run:
+## Features
 
-### `npm start`
+- Display all users and their addresses provided by the user API.
+- Implement pagination when there are more than ten users.
+- Include a textbox to search for users by their usernames.
+- Enable filtering of the user table by username in ascending and descending order.
+- Allow users to preview photo galleries by clicking a button, displaying the list of albums in a modal. Then, based on each album, show the photos of selected users.
+- Implement a "Create New Album" button to create a new album for a user. (Note: The backend accepts the POST request but does not modify anything for now.)
+- Ensure adherence to frontend coding standards, including comprehensive component unit tests and end-to-end test cases.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Installation
 
-### `npm test`
+To set up the project, follow these steps:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. Clone the repository from GitHub.
 
-### `npx cypress run`
+2. Navigate to the Project directory in your terminal.
 
-Also change the cy.visit("http://localhost:3000/"); Path inside the cypress/e2e folder the file name UserList.cy.ts
-To run the e2e tests of complete application.\
-See the section about [running tests](https://www.cypress.io/) for more information.
+3. Install dependencies by running:
 
-### `npm run build`
+```
+npm install
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```
+npm start
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+4. Start the application with:
 
-### `Frontend Technologies Used`
+This will launch the application in your default web browser at http://localhost:3000
 
-- React was chosen as the frontend framework for constructing the user interface.
-- Components were organized into reusable pieces to promote modularity and maintainability.
-- State management techniques such as the React Context API, TypeScript, and Bootstrap CSS were implemented to manage document data and UI states effectively.
-- - All Git and GitLab practices, including branches and merge requests, were followed.
+## Testing
+
+1. Navigate to the Project directory in your terminal.
+
+2. To run tests for the components, use the following command:
+
+```
+npm test
+```
+
+This will execute unit tests for the components using Jest.
+
+## Technologies Used
+
+- React Framework: React was chosen for its efficiency in building interactive user interfaces.
+- Component Modularity: - Components were organized into reusable pieces to promote modularity and maintainability.
+- Bootstrap CSS for Responsive Design: Bootstrap was implemented to achieve responsive design across different devices.
+- The unit testing of components using Jest ensures the robustness and reliability of the application, validating the functionality of component.
+- Cypress was chosen to run the end to end test cases.
+- All Git and GitLab practices, including branches and merge requests, were followed.
 
 ## Learn more from the documentation to create a project
 

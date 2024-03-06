@@ -29,13 +29,18 @@ const PhotoGalleryModalComponent: React.FC<PhotoGalleryModalProps> = ({
   userId,
   userName,
 }) => {
+  //Set state variables
   const [albums, setAlbums] = useState<Album[]>([]);
   const [selectedAlbum, setSelectedAlbum] = useState<Album | null>(null);
   const [photos, setPhotos] = useState<Photo[]>([]);
   const [currentPage, setCurrentPage] = useState<number>(1);
-  const photosPerPage = 9;
 
-  //fetch Albums based against userId
+  const photosPerPage = 9;
+  const indexOfLastPhoto = currentPage * photosPerPage;
+  const indexOfFirstPhoto = indexOfLastPhoto - photosPerPage;
+  const currentPhotos = photos.slice(indexOfFirstPhoto, indexOfLastPhoto);
+
+  //fetch Albums against userId
   useEffect(() => {
     const fetchAlbums = async () => {
       try {
@@ -82,10 +87,6 @@ const PhotoGalleryModalComponent: React.FC<PhotoGalleryModalProps> = ({
       fetchPhotos();
     }
   }, [selectedAlbum]);
-
-  const indexOfLastPhoto = currentPage * photosPerPage;
-  const indexOfFirstPhoto = indexOfLastPhoto - photosPerPage;
-  const currentPhotos = photos.slice(indexOfFirstPhoto, indexOfLastPhoto);
 
   const handleNextPage = () => {
     setCurrentPage(currentPage + 1);

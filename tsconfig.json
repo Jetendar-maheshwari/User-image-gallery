@@ -6,6 +6,7 @@
       "dom.iterable",
       "esnext"
     ],
+    "types": ["jest", "jest-dom", "@testing-library/react"],
     "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
@@ -25,7 +26,7 @@
     }
   },
   "include": [
-    "cypress",
-    "src"
+    "src", 
+    "cypress"
   ]
 }

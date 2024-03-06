@@ -1,0 +1,11 @@
+# Ignore node_modules directory for both projects
+**/node_modules/
+
+# Ignore build output for both projects
+**/build/
+**/dist/
+
+# Ignore IDE and editor files for both projects
+**/.vscode/
+**/.idea/
+**/*.iml

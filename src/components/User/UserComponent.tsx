@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { FaArrowUp, FaArrowDown } from "react-icons/fa";
 import "./UserComponent.css";
 import API_BASE_URL from "../../utils/apiConfig";
-import AlbumModalComponent from "../PhotoGalleryModal/PhotoGalleryModalComponent";
+import PhotoGalleryModalComponent from "../PhotoGalleryModal/PhotoGalleryModalComponent";
 import { Button } from "react-bootstrap";
 import NewAlbumModalComponent from "../NewAlbumModal/NewAlbumModalComponent";
 
@@ -23,16 +23,17 @@ const UserComponent: React.FC = () => {
   const [filteredUsers, setFilteredUsers] = useState<User[]>([]);
   const [searchTerm, setSearchTerm] = useState<string>("");
   const [sortOrder, setSortOrder] = useState<"asc" | "desc">("asc");
-  const [currentPage, setCurrentPage] = useState<number>(1);
-  const [usersPerPage] = useState<number>(10);
   const [error, setError] = useState<string>("");
 
   //Add pagination for more than ten users entries
+  const [currentPage, setCurrentPage] = useState<number>(1);
+  const [usersPerPage] = useState<number>(10);
   const indexOfLastUser = currentPage * usersPerPage;
   const indexOfFirstUser = indexOfLastUser - usersPerPage;
   const currentUsers = filteredUsers.slice(indexOfFirstUser, indexOfLastUser);
   const paginate = (pageNumber: number) => setCurrentPage(pageNumber);
 
+  //Set state variables for Modals
   const [showPhotoGalleryModal, setShowPhotoGalleryModal] =
     useState<boolean>(false);
   const [selectedUserId, setSelectedUserId] = useState<number | null>(null);
@@ -63,7 +64,7 @@ const UserComponent: React.FC = () => {
   }, []);
 
   /**
-   * Searching by user name and filtering the records based on the search term
+   * Updates the searchTerm state and filters the users based on the search query.
    * @param event
    */
   const handleSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -72,7 +73,7 @@ const UserComponent: React.FC = () => {
   };
 
   /**
-   * Filter the
+   * Filter the user
    * @param searchQuery
    */
   const filterUsers = (searchQuery: string) => {
@@ -97,6 +98,11 @@ const UserComponent: React.FC = () => {
     setSortOrder(sortOrder === "asc" ? "desc" : "asc");
   };
 
+  /**
+   * On click of Preview Photo Gallery button it's called and set the given values
+   * @param userId
+   * @param userName
+   */
   const handlePhotoGallery = (userId: number, userName: string) => {
     setSelectedUserId(userId);
     setSelectedUserName(userName);
@@ -118,6 +124,7 @@ const UserComponent: React.FC = () => {
           onChange={handleSearch}
         />
       </div>
+
       <table data-testid="cypress-table" className="table table-striped">
         <thead>
           <tr>
@@ -201,7 +208,7 @@ const UserComponent: React.FC = () => {
       />
 
       {/* Open album photos gallery modal - Show the album against userId and then show the photo against ablumId */}
-      <AlbumModalComponent
+      <PhotoGalleryModalComponent
         show={showPhotoGalleryModal}
         handleClose={() => setShowPhotoGalleryModal(false)}
         userId={selectedUserId || 0}
