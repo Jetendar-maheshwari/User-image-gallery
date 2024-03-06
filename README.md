@@ -16,6 +16,11 @@ The Photo Gallery Application provides a user-friendly interface for searching t
 - Implement a "Create New Album" button to create a new album for a user. (Note: The backend accepts the POST request but does not modify anything for now.)
 - Ensure adherence to frontend coding standards, including comprehensive component unit tests and end-to-end test cases.
 
+## API used
+
+API of [JSONPlaceholder](https://jsonplaceholder.typicode.com/) is used for change please check the file apiConfig
+inside the utils folder.
+
 ## Installation
 
 To set up the project, follow these steps:
